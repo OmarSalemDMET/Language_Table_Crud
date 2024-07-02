@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <table>
+      <tr>
+        <th>En</th>
+        <th>Fr</th>
+        <th>Lang</th>
+        <th>Categ</th>
+      </tr>
+      {{range .wordArr}}
+      <tr>
+      <td>{{.WordEn}}</td>   
+      <td>{{.Word}}</td>   
+      <td>{{.Lang}}</td>   
+      <td>{{.Categ}}</td>   
+      </tr>
+      {{end}}
+  </table>
+</html>
+
