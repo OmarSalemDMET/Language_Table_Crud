@@ -70,8 +70,10 @@
     }
 
     .btn_sty {
-      border-radius: 12px;
-      background-color: #F6FDC3;
+      background-color: black;
+      color: white;
+      width: 200px;
+      margin-left: 57%;
     }
   </style>
 
@@ -94,14 +96,17 @@
         {{range .wordArr}}
         <tr>
           <td class="cell_sty">{{.WordEn}}</td>
-          <input name="WordEn" style="display: none;" value="{{.WordEn}}">
           <td class="cell_sty">{{.Word}}</td>
           <td class="cell_sty">{{.Lang}}</td>
           <td class="cell_sty">{{.Categ}}</td>
-          <td class="cell_sty"><input type="submit" value="Delete" class="btn_sty"></td>
+          <td class="cell_sty"><input type="checkbox" name="{{.WordEn}}" value="{{.WordEn}}"> </td>
         </tr>
         {{end}}
+
       </table>
+      <br>
+
+      <input type="submit" value="Delete" class="btn_sty">
     </form>
   </div>
 </body>

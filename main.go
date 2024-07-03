@@ -16,6 +16,7 @@ func loadWordsOn(c *gin.Context) {
 		"wordArr": payload,
 	})
 }
+
 func appendWrdOn(c *gin.Context) {
 	wrdEn := c.PostForm("WrdEn")
 	wrdFr := c.PostForm("WrdFr")
@@ -28,6 +29,7 @@ func appendWrdOn(c *gin.Context) {
 	c.Redirect(http.StatusFound, "/home")
 
 }
+
 func loadLessonOn(c *gin.Context) {
 	c.HTML(http.StatusOK, "lesson.html", gin.H{})
 
@@ -45,11 +47,11 @@ func loadDeleteOn(c *gin.Context) {
 }
 
 func deleteWordOn(c *gin.Context) {
-	wrdEn := c.PostForm("WordEn")
 	myWords := loadWordTable()
 	var newMap = make(map[string]wordArch.WordArch)
 	for index, element := range myWords {
-		if index != wrdEn {
+		if c.PostForm(index) == "" {
+			fmt.Println("Theres the post form", c.PostForm(index))
 			newMap[index] = element
 		}
 	}

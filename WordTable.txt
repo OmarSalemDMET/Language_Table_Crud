@@ -1,3 +1,2 @@
-Rain=Pleut=French=Weather    
-Vacation=Urluab=German=Vacation   
-gsdf=sdfsdf=sdfsdf=sdfsdf  
+Meal=Le Repas=French=Food    
+Cheese=Le Repas=French=Food     
