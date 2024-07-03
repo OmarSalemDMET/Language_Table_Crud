@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+<html>
+<style>
+  .input_sty {
+    font-weight: bolder;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 13px;
+  }
+
+  .header_style {
+
+    display: flex;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+</style>
+<div id="div_wrapper">
+  <h1 class="header_style">New Word 😊</h1>
+  <form action="http://localhost:8080/lesson" method="Post" class="header_style">
+    <input type="text" id="w_en" name="WrdEn" placeholder="Words in English" class="input_sty" required>
+    <input type="text" id="w_fr" name="WrdFr" placeholder="Words in Other Language" class="input_sty" required>
+    <input type="text" id="wrd_lang" name="Lang" placeholder="Language" class="input_sty" required>
+    <input type="text" id="wrd_categ" name="Categ" placeholder="Category" class="input_sty" required>
+    <input type="submit" value="submit" class="input_sty">
+  </form>
+
+</div>
+
+
+
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+  <style>
+    .table_sty {
+      background-color: #FF8080;
+      max-width: 1024px;
+      margin-right: auto;
+      margin-left: 50%;
+      border-radius: 12px;
+      border-spacing: 10px;
+      margin-top: 5%;
+    }
+
+    .cell_sty {
+      padding: 10px;
+      border-radius: 12px;
+      background: #CDFAD5;
+      border-style: solid;
+      color: black;
+      margin: 10px;
+      border-spacing: 10px;
+
+    }
+
+    .cell_sty_th {
+      padding: 10px;
+      border-radius: 12px;
+      background: #FFCF96;
+      border-style: double;
+      color: black;
+      margin: 10px
+    }
+
+    .div_wrapper {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+
+    }
+
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      width: 25%;
+      background-color: #f1f1f1;
+      position: fixed;
+      height: 100%;
+      overflow: auto;
+    }
+
+    li a {
+      display: block;
+      color: #000;
+      padding: 8px 16px;
+      text-decoration: none;
+    }
+
+    li a.active {
+      background-color: coral;
+      color: white;
+    }
+
+    li a:hover:not(.active) {
+      background-color: #555;
+      color: white;
+    }
+
+    .btn_sty {
+      border-radius: 12px;
+      background-color: #F6FDC3;
+    }
+  </style>
+
+  <ul>
+    <li><a class="active" href="http://localhost:8080/home">Home</a></li>
+    <li><a href="http://localhost:8080/lesson">Add a new Word</a></li>
+    <li><a href="http://localhost:8080/deleteWrd">Delete Word</a></li>
+    <li><a href="#about">About</a></li>
+  </ul>
+  <div class="div_wrapper">
+    <form method="post">
+      <table class="table_sty">
+        <tr>
+          <th class="cell_sty_th">En</th>
+          <th class="cell_sty_th">Fr</th>
+          <th class="cell_sty_th">Lang</th>
+          <th class="cell_sty_th">Categ</th>
+          <th></th>
+        </tr>
+        {{range .wordArr}}
+        <tr>
+          <td class="cell_sty">{{.WordEn}}</td>
+          <input name="WordEn" style="display: none;" value="{{.WordEn}}">
+          <td class="cell_sty">{{.Word}}</td>
+          <td class="cell_sty">{{.Lang}}</td>
+          <td class="cell_sty">{{.Categ}}</td>
+          <td class="cell_sty"><input type="submit" value="Delete" class="btn_sty"></td>
+        </tr>
+        {{end}}
+      </table>
+    </form>
+  </div>
+</body>
+
+</html>

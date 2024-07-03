@@ -25,7 +25,11 @@ func loadWordTable() map[string]wordArch.WordArch {
 	var i int = 0
 	for scanner.Scan() {
 		var index string
-		var word string
+		var (
+			word  string
+			lang  string
+			categ string
+		)
 		for i < len(scanner.Text()) {
 			if scanner.Text()[i] == '=' {
 				break
@@ -38,13 +42,36 @@ func loadWordTable() map[string]wordArch.WordArch {
 		i++
 		for i < len(scanner.Text()) {
 			if scanner.Text()[i] == '=' {
+				break
 			} else {
 				word += string(scanner.Text()[i])
 				i++
 			}
 		}
 
-		myMap[index] = wordArch.WordArch{Word: word, Lang: "Francia", Categ: "Food"}
+		i++
+
+		for i < len(scanner.Text()) {
+			if scanner.Text()[i] == '=' {
+				break
+			} else {
+				lang += string(scanner.Text()[i])
+				i++
+			}
+		}
+
+		i++
+
+		for i < len(scanner.Text()) {
+			if scanner.Text()[i] == '=' {
+				break
+			} else {
+				categ += string(scanner.Text()[i])
+				i++
+			}
+		}
+
+		myMap[index] = wordArch.WordArch{WordEn: index, Word: word, Lang: lang, Categ: categ}
 		i = 0
 	}
 
@@ -63,7 +90,7 @@ func saveWordTable(wordM map[string]wordArch.WordArch) {
 	defer file.Close()
 
 	for index, word := range wordM {
-		tLine := fmt.Sprintf("%s=%s \n", index, word.Word)
+		tLine := fmt.Sprintf("%s=%s=%s=%s \n", index, word.Word, word.Lang, word.Categ)
 		_, err := file.WriteString(tLine)
 		if err != nil {
 			fmt.Println("Failed to SAVE content")
