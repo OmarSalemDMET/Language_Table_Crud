@@ -61,7 +61,7 @@ func deleteWordOn(c *gin.Context) {
 
 func main() {
 	router := gin.Default()
-	router.SetTrustedProxies([]string{"127.0.0.1"})
+	router.SetTrustedProxies([]string{""})
 	router.LoadHTMLGlob("templates/*")
 	router.GET("/home", loadWordsOn)
 	router.GET("/lesson", loadLessonOn)
